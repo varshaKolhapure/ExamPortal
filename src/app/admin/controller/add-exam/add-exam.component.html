@@ -1,0 +1,53 @@
+<h1 mat-dialog-title>Add Exam</h1>
+
+<div mat-dialog-content>
+  <form [formGroup]="addExamForm">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label>Exam No:</label>
+        <input type="text" formControlName="exam_no" class="form-control" />
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="form-group">
+        <label>Exam Name:</label>
+        <input type="text"  formControlName="exam_name" class="form-control" />
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="form-group">
+        <label>Ex  j                bbhdg  dhggfhthjk tj hghj am Date:</label>
+        <input type="text" formControlName="exam_date" class="form-control" placeholder="yyyy-mm-dd" />
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="form-group">
+        <label>Total Question:</label>
+        <input type="text" formControlName="total_question" class="form-control" />
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="form-group">
+        <label>Passing Marks:</label>
+        <input type="text" formControlName="passing_marks" class="form-control" />
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="form-group">
+        <label>Sub No:</label>
+        <select mat-select formControlName="sub_no"  class="form-select">
+          <option *ngFor="let item of  subjectList" [ngValue]="item.sub_no"> {{ item.sub_name }}</option>
+        </select>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancle</button>
+  <button mat-button class="btn btn-success" (click)="saveExamDetails()" [disabled]="this.addExamForm.invalid" >Save</button>
+</div>

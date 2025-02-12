@@ -1,0 +1,94 @@
+<div mat-dialog-content>
+  <h1 mat-dialog-title>Add Exam</h1>
+
+  <div mat-dialog-content>
+    <form [formGroup]="formAddQuestion">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label>Sr No:</label>
+          <input type="text" formControlName="sr_no" class="form-control" />
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+          <label>Exam No:</label>
+          <input type="text" formControlName="exam_no" class="form-control" (blur)="getMaxQuestion($event)"/>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+          <label>Question No:</label>
+          <input type="text" formControlName="question_no" class="form-control"/>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+          <label>Question:</label>
+          <input type="text" formControlName="question" class="form-control" />
+        </div>
+      </div>
+      <!-- -------------------------------option row added--------------------------------------- -->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="custom-control-label" for="sele1"> Option 1 </label>
+            <div class="row">
+              <div class="col-2"><input type="radio" id="sele1" name="rithtSelect" value='1' (change)="onSubjectChange($event)"></div>
+              <div class="col-10"><input type="text" formControlName="option1" class="form-control" /></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="custom-control-label" for="sele2"> Option 2 </label>
+            <div class="row">
+              <div class="col-2"><input type="radio" id="sele2" name="rithtSelect" value='2' (change)="onSubjectChange($event)"></div>
+              <div class="col-10"><input type="text" formControlName="option2" class="form-control" /></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="custom-control-label" for="sele2"> Option 3 </label>
+            <div class="row">
+              <div class="col-2"><input type="radio" id="sele3" name="rithtSelect" value='3' (change)="onSubjectChange($event)"></div>
+              <div class="col-10"><input type="text" formControlName="option3" class="form-control" /></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+             <div><label class="custom-control-label" for="sele2"> Option 4 </label> </div>
+              <div class="row">
+                <div class="col-2"><input type="radio" id="sele4" name="rithtSelect" value='4' (change)="onSubjectChange($event)"></div>
+                <div class="col-10"><input type="text" formControlName="option4" class="form-control" /></div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <!-- ------------------option row end------------------ -->
+      <div class="col-md-12">
+        <div class="form-group">
+          <label>Right Ans:</label>
+          <input type="text" formControlName="right_Ans" class="form-control" readonly>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="form-group">
+          <label>Marks:</label>
+          <input type="text" formControlName="marks" class="form-control" />
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancle</button>
+    <button mat-button class="btn btn-success" [disabled]="!formAddQuestion.valid" (click)="addDataToSessionStorage()">Save</button>
+  </div>
+</div>
+
+<div mat-dialog-actions>
+
+</div>

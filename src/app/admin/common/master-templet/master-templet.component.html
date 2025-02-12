@@ -1,0 +1,53 @@
+<div id="logo">
+  <span class="big-logo">.S!mple</span>
+  <span class="small-logo">S!M</span>
+</div>
+<div id="left-menu">
+  <ul>
+      <li class="active"><a href="#">
+          <i class="ion-ios-person-outline"></i>
+          <span>Dashboard</span>
+      </a></li>
+
+      <li><a href="#" routerLink="/home">
+        <i class="ion-ios-albums-outline"></i>
+        <span>Home</span>
+        </a></li>
+
+      <li><a href="#" routerLink="/exam">
+          <i class="ion-ios-albums-outline"></i>
+          <span>ExamMaster</span>
+      </a></li>
+
+      <li><a href="#" routerLink="/subject-list">
+        <i class="ion-ios-albums-outline"></i>
+        <span>Subject</span>
+    </a></li>
+
+      <li><a href="#" routerLink="/question-details">
+        <i class="ion-ios-albums-outline"></i>
+        <span>Question-details</span>
+    </a></li>
+
+      <li><a href="#" routerLink="contactUs">
+        <i class="ion-ios-albums-outline"></i>
+        <span>contactUs</span>
+    </a></li>
+
+
+  </ul>
+</div>
+<div id="main-content">
+  <div id="page-container">
+      <div class="card">
+          <div class="title">ExamPortal</div>
+          <div class="content">
+              <div class="container-fluid">
+
+                <router-outlet></router-outlet>
+              </div>
+          </div>
+      </div>
+
+  </div>
+</div>

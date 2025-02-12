@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col-12">
+    <div class="row">
+      <button mat-raised-button class="mt-5 mb-5"> Add Subject </button>
+      <mat-card class="example-card">
+        <mat-card-content>
+
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Exam No:</label>
+              <input type="text" Name="sub_no" class="form-control" [(ngModel)]="subjectData.sub_no" readonly />
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Exam Name:</label>
+              <input type="text" Name="sub_name" class="form-control" [(ngModel)]="subjectData.sub_name" required="true" />
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-stroked-button color="warn" (click)="resetForm()">Cancel</button>
+          <button mat-stroked-button color="primary" (click)="onSubmit()"> {{ checkEdit }} </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<div class="mat-elevation-z8 mt-5">
+  <table mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="srNo">
+      <th mat-header-cell *matHeaderCellDef> Sr No</th>
+      <td mat-cell *matCellDef="let element; let i = index"> {{ i }}</td>
+    </ng-container>
+    <!-- Total Question Column -->
+    <ng-container matColumnDef="sub_no">
+      <th mat-header-cell *matHeaderCellDef> Sub No </th>
+      <td mat-cell *matCellDef="let element"> {{element.sub_no}} </td>
+    </ng-container>
+
+    <!-- Total Question Column -->
+    <ng-container matColumnDef="sub_name">
+      <th mat-header-cell *matHeaderCellDef> Sub Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.sub_name}} </td>
+    </ng-container>
+
+    <!-- Update Column -->
+    <ng-container matColumnDef="option">
+      <th mat-header-cell *matHeaderCellDef> Update </th>
+
+    <td mat-cell *matCellDef="let element">
+      <div class="row">
+        <div class="col-3"> <button mat-stroked-button color="primary" (click)=" getEditSubject(element)">Edit</button></div>
+          <div class="col-3"><button mat-stroked-button color="warn" (click)=" getDeleteSubject(element.sub_no)" >Delete</button></div>
+        </div>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20, 25]" showFirstLastButtons></mat-paginator>
+</div>

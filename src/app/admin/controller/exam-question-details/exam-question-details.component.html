@@ -1,0 +1,71 @@
+<button mat-raised-button (click)="openAddEditQueForm()">Add Question</button>
+<div class="mat-elevation-z8 mt-5">
+  <table mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="srNo">
+    <th mat-header-cell *matHeaderCellDef>Sr No</th>
+    <td mat-cell *matCellDef="let element; let i = index">{{ i }}</td>
+  </ng-container>
+  <!-- Total Question Column -->
+  <ng-container matColumnDef="sr_no">
+    <th mat-header-cell *matHeaderCellDef>Sr_No</th>
+    <td mat-cell *matCellDef="let element">{{ element.sr_no }}</td>
+  </ng-container>
+  <ng-container matColumnDef="exam_no">
+    <th mat-header-cell *matHeaderCellDef>Exam No</th>
+    <td mat-cell *matCellDef="let element">{{ element.exam_no }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="question_no">
+    <th mat-header-cell *matHeaderCellDef>Question No</th>
+    <td mat-cell *matCellDef="let element">{{ element.question_no }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="question">
+    <th mat-header-cell *matHeaderCellDef>Question</th>
+    <td mat-cell *matCellDef="let element">{{ element.question }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="option1">
+    <th mat-header-cell *matHeaderCellDef>Option1</th>
+    <td mat-cell *matCellDef="let element">{{ element.option1 }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="option2">
+    <th mat-header-cell *matHeaderCellDef>Option2</th>
+    <td mat-cell *matCellDef="let element">{{ element.option2 }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="option3">
+    <th mat-header-cell *matHeaderCellDef>Option3</th>
+    <td mat-cell *matCellDef="let element">{{ element.option3 }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="option4">
+    <th mat-header-cell *matHeaderCellDef>Option4</th>
+    <td mat-cell *matCellDef="let element">{{ element.option4 }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="right_ans">
+    <th mat-header-cell *matHeaderCellDef>Right Ans</th>
+    <td mat-cell *matCellDef="let element">{{ element.right_ans }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="marks">
+    <th mat-header-cell *matHeaderCellDef>Marks</th>
+    <td mat-cell *matCellDef="let element">{{ element.marks }}</td>
+  </ng-container>
+
+  <!-- Update Column -->
+  <ng-container matColumnDef="options">
+    <th mat-header-cell *matHeaderCellDef>Update</th>
+    <td mat-cell *matCellDef="let element">
+      <button type="button" class="btn btn-success ml-1">Edit</button>
+      <button type="button" class="btn btn-danger">Delete</button>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20, 25]" showFirstLastButtons></mat-paginator>
+  </div>
